@@ -1,0 +1,17 @@
+﻿@model HomeViewModel
+
+
+<div class="container">
+
+    @await Html.PartialAsync("P_Slider")
+    <h2 class="text-center fontYekan">محصولات ویژه این  هفته </h2>
+    <hr />
+    <div class="row">
+        @foreach (var item in Model.SpecialProducts)
+        {
+            @Html.Partial("ProductSummery", item);
+        }
+    </div>
+</div>
+
+

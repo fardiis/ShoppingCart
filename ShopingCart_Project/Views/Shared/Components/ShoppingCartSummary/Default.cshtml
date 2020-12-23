@@ -1,0 +1,20 @@
+﻿
+@model ShoppingCartViewModel
+@{
+    ViewData["Title"] = "Default";
+}
+
+@if (Model.shoppingCart.ShoppingCartItems.Count >= 0)
+{
+    <ul>
+        <li>
+            <a asp-controller="ShoppingCart" asp-action="Index">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+                <span id="cart-status">
+                    @Model.shoppingCart.ShoppingCartItems.Count
+                </span>
+            </a>
+        </li>
+    </ul>
+}
+

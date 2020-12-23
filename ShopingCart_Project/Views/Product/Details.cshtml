@@ -1,0 +1,33 @@
+﻿
+@model Product
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+
+    <div class="panel panel-primary fontYekan">
+        <div class="panel-heading">
+            <div class="panel-title text-right">@Model.ProductName</div>
+        </div>
+        <div class="panel-body">
+            <img src="@Model.ImagUrl" style="height:350px" class="img-rounded center-block" alt="@Model.ProductName" />
+        </div>
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <div class="panel-title text-right">مشخصات محصول</div>
+            </div>
+            <div class="panel-body text-right">
+                نام محصول : @Model.ProductName
+
+                <p></p>
+
+                مبلغ  : @Model.Price &nbsp; تومان
+                <p></p>
+                توضیحات محصول :
+                <p>@Model.LongDescription</p>
+            </div>
+        </div>
+    </div>
+
+</div>

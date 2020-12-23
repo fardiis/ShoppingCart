@@ -1,0 +1,47 @@
+﻿@model ShopingCart_Project.Data.Models.Orders
+
+@{
+    ViewData["Title"] = "CheckOut";
+}
+
+
+<div class="container" style="direction:rtl">
+
+   
+    <div class="panel panel-primary fontYekan ">
+        <div class="panel-heading">
+            <div class="panel-title text-right">ثبت مشخصات جهت ارسال سفارش</div>
+        </div>
+        <form asp-action="CheckOut">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <textarea asp-for="Address" class="form-control"></textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mobile" class="control-label"></label>
+                <input asp-for="Mobile" class="form-control" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="ثبت مشخصات و نهایی کردن سفارش" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+       
+    </div>
+
+
+

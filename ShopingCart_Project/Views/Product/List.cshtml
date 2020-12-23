@@ -1,0 +1,21 @@
+﻿@model ProductListViewModel
+@{
+    ViewData["Title"] = "List";
+}
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title text-right">نمایش همه محصولات</div>
+        </div>
+        <div class="panel-body">
+            @{
+                foreach (Product item in Model.Products)
+                {
+                   @Html.Partial("ProductSummery",item);
+                    @*@await Html.PartialAsync("ProductSummery", item);*@
+                  
+                }
+            }
+        </div>
+    </div>
+</div>

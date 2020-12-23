@@ -1,0 +1,66 @@
+﻿@model ShoppingCartViewModel
+@{
+    int RowCount = 1;
+}
+@{ 
+    if (Model.shoppingCart.ShoppingCartItems.Count==0)
+    {
+        <div class="@TempData["Style"] text-center" style="font-family:'B Yekan'">@TempData["Message"]</div>
+    }
+}
+<div class="container">
+<div class="panel panel-primary">
+    <div class=" panel-heading">
+        <div class="panel-title text-right">سبد خرید محصولات شما</div>
+    </div>
+    <div class="panel-body">
+        <br />
+        <a role="button" class="btn btn-danger right"  onclick="return confirm('ایا میخواهید سبد خرید را خالی کنید؟')" asp-action="ClearShoppingCart" asp-controller="ShoppingCart">خالی کردن سبد خرید</a>
+        <br />
+        <div class="row checkoutForm fontYekan">
+            <table class="table table-bordered table-condensed table-hover table-responsive table-striped  text-center" style="direction:rtl">
+                <!----Header--->
+                <thead class="text-center" style="background-color:antiquewhite">
+                    <tr>
+                        <th>ردیف</th>
+                        <th>نام محصول</th>
+                        <th> تعداد</th>
+                        <th>مبلغ</th>
+                        <th>جمع قیمت محصول</th>
+                        <th>عملیات</th>
+
+
+                    </tr>
+                </thead>
+                <!---Body--->
+                <tbody class="text-center">
+                    @foreach (var item in Model.shoppingCart.ShoppingCartItems)
+                    {
+                        <tr>
+                            <td>@(RowCount++)</td>
+                            <td>@item.Products.ProductName</td>
+                            <td>@item.Amount</td>
+                            <td>@item.Products.Price</td>
+                            <td>@(item.Amount*item.Products.Price)</td>
+                            <td><a class="glyphicon glyphicon-remove" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@item.Products.ProductId" onclick="return confirm('ایا میخواهید این محصول حذف شود')"></a></td>
+                        </tr>
+
+                    }
+
+                </tbody>
+                <!--Footer---->
+                <tfoot>
+                    <tr>
+                        <td colspan="3">جمع کل پرداختی:</td>
+                        <td>@Model.ShoppingCartTotal</td>
+                    </tr>
+                </tfoot>
+
+            </table>
+            <a role="button" asp-controller="Order" asp-action="CheckOut" class="btn btn-success">تسویه حساب</a>
+
+        </div>
+
+    </div>
+</div>
+    </div>
